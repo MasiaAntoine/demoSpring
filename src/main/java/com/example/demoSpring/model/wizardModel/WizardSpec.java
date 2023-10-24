@@ -1,4 +1,4 @@
-package com.example.demoSpring.model;
+package com.example.demoSpring.model.wizardModel;
 
 public class WizardSpec {
     private String nom;
