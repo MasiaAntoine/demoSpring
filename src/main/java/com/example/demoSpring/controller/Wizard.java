@@ -12,9 +12,15 @@ public class Wizard {
 
     @GetMapping("/wizard/spec")
     public ProfileWrapper getWizardSpec() {
-        Spec emailSpec = new Spec(20);
-        Spec phoneSpec = new Spec(20);
-        Profile wizardProfile = new Profile(emailSpec, phoneSpec);
-        return new ProfileWrapper(wizardProfile);
+        Spec emailSpec = Spec.builder().maxLength(20).build();
+        Spec phoneSpec = Spec.builder().maxLength(20).build();
+        Profile wizardProfile = Profile.builder()
+                .email(emailSpec)
+                .phone(phoneSpec)
+                .build();
+        return ProfileWrapper.builder()
+                .profile(wizardProfile)
+                .build();
     }
+
 }

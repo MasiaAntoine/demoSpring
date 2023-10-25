@@ -1,17 +1,12 @@
 package com.example.demoSpring.model.wizardModel;
 
+import lombok.Builder;
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
+
+@Data
+@RequiredArgsConstructor
+@Builder
 public class ProfileWrapper {
-    private Profile profile;
-
-    public ProfileWrapper(Profile profile) {
-        this.profile = profile;
-    }
-
-    public Profile getProfile() {
-        return profile;
-    }
-
-    public void setProfile(Profile profile) {
-        this.profile = profile;
-    }
+    private final Profile profile;
 }

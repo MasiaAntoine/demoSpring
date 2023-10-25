@@ -2,19 +2,14 @@ package com.example.demoSpring.model.wizardModel;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import lombok.Builder;
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
+
+@Data
+@RequiredArgsConstructor
+@Builder
 public class Spec {
     @JsonProperty("max-length")
-    private int maxLength;
-
-    public Spec(int maxLength) {
-        this.maxLength = maxLength;
-    }
-
-    public int getMaxLength() {
-        return maxLength;
-    }
-
-    public void setMaxLength(int maxLength) {
-        this.maxLength = maxLength;
-    }
+    private final int maxLength;
 }
