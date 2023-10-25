@@ -5,8 +5,7 @@ import lombok.Data;
 
 @Data
 @Builder(toBuilder = true)
-public class Shop {
-    private Spec phone;
-    private Spec name;
-    private Spec adress;
+public class WizardModelWrapper {
+    private WizardModelProfile profile;
+    private WizardModelShop shop;
 }

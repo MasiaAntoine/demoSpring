@@ -1,55 +1,56 @@
-package com.example.demoSpring.controller;
+package com.example.demoSpring.service;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
-import com.example.demoSpring.model.wizard.Profile;
-import com.example.demoSpring.model.wizard.Shop;
-import com.example.demoSpring.model.wizard.Spec;
-import com.example.demoSpring.model.wizard.Wrapper;
+import com.example.demoSpring.model.wizard.WizardModelProfile;
+import com.example.demoSpring.model.wizard.WizardModelShop;
+import com.example.demoSpring.model.wizard.WizardModelSpec;
+import com.example.demoSpring.model.wizard.WizardModelWrapper;
 
-@RestController
-public class Wizard {
+@Service
+public class WizardServiceImpl implements WizardService {
 
-        @GetMapping("/wizard/spec")
-        public Wrapper getWizardSpec() {
-                Spec emailSpec = Spec.builder()
+        @Override
+        public WizardModelWrapper getWizardSpec() {
+                // Votre logique actuelle ici...
+
+                WizardModelSpec emailSpec = WizardModelSpec.builder()
                                 .maxLength(50)
                                 .minLength(3)
                                 .allowedCharacter("")
                                 .build();
-                Spec phoneSpec = Spec.builder()
+                WizardModelSpec phoneSpec = WizardModelSpec.builder()
                                 .maxLength(20)
                                 .minLength(10)
                                 .allowedCharacter("^[0-9+ ]+$")
                                 .build();
-                Spec passwordSpec = Spec.builder()
+                WizardModelSpec passwordSpec = WizardModelSpec.builder()
                                 .maxLength(50)
                                 .minLength(3)
                                 .allowedCharacter("")
                                 .build();
-                Spec lastnameSpec = Spec.builder()
+                WizardModelSpec lastnameSpec = WizardModelSpec.builder()
                                 .maxLength(50)
                                 .minLength(3)
                                 .allowedCharacter("^[a-zA-Z éèêëàâäôöùûüçÉÈÊËÀÂÄÔÖÙÛÜÇ-]+$")
                                 .build();
-                Spec nameShopSpec = Spec.builder()
+                WizardModelSpec nameShopSpec = WizardModelSpec.builder()
                                 .maxLength(50)
                                 .minLength(3)
                                 .allowedCharacter("^[a-zA-Z éèêëàâäôöùûüçÉÈÊËÀÂÄÔÖÙÛÜÇ-]+$")
                                 .build();
-                Spec firstnameSpec = Spec.builder()
+                WizardModelSpec firstnameSpec = WizardModelSpec.builder()
                                 .maxLength(50)
                                 .minLength(3)
                                 .allowedCharacter("^[a-zA-Z éèêëàâäôöùûüçÉÈÊËÀÂÄÔÖÙÛÜÇ-]+$")
                                 .build();
-                Spec adressSpec = Spec.builder()
+                WizardModelSpec adressSpec = WizardModelSpec.builder()
                                 .maxLength(300)
                                 .minLength(10)
                                 .allowedCharacter("^[a-zA-Z0-9 éèêëàâäôöùûüçÉÈÊËÀÂÄÔÖÙÛÜÇ,'-]+$")
                                 .build();
 
-                Profile profile = Profile.builder()
+                WizardModelProfile profile = WizardModelProfile.builder()
                                 .email(emailSpec)
                                 .phone(phoneSpec)
                                 .password(passwordSpec)
@@ -57,16 +58,15 @@ public class Wizard {
                                 .firstname(firstnameSpec)
                                 .build();
 
-                Shop shop = Shop.builder()
+                WizardModelShop shop = WizardModelShop.builder()
                                 .phone(phoneSpec)
                                 .name(nameShopSpec)
                                 .adress(adressSpec)
                                 .build();
 
-                return Wrapper.builder()
+                return WizardModelWrapper.builder()
                                 .profile(profile)
                                 .shop(shop)
                                 .build();
         }
-
 }
