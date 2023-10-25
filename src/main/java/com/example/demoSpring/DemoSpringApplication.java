@@ -1,6 +1,6 @@
 package com.example.demoSpring;
 
-import com.example.demoSpring.model.ObjetExemple;
+import com.example.demoSpring.model.ObjetExempleModel;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -25,10 +25,5 @@ public class DemoSpringApplication {
 	@GetMapping("/user/{name}")
 	public String greet(@PathVariable String name) {
 		return "utilisateur, " + name + "!";
-	}
-
-	@GetMapping("/objetExemple")
-	public ObjetExemple getObjetExemple() {
-		return new ObjetExemple("Jean", 25);
 	}
 }

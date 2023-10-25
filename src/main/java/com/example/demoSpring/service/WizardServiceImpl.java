@@ -2,10 +2,10 @@ package com.example.demoSpring.service;
 
 import org.springframework.stereotype.Service;
 
-import com.example.demoSpring.model.wizard.WizardModelProfile;
-import com.example.demoSpring.model.wizard.WizardModelShop;
-import com.example.demoSpring.model.wizard.WizardModelSpec;
-import com.example.demoSpring.model.wizard.WizardModelWrapper;
+import com.example.demoSpring.model.WizardModelProfile;
+import com.example.demoSpring.model.WizardModelShop;
+import com.example.demoSpring.model.WizardModelSpec;
+import com.example.demoSpring.model.WizardModelWrapper;
 
 @Service
 public class WizardServiceImpl implements WizardService {

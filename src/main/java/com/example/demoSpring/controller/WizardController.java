@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demoSpring.model.wizard.WizardModelWrapper;
+import com.example.demoSpring.model.WizardModelWrapper;
 import com.example.demoSpring.service.WizardService;
 
 @RestController

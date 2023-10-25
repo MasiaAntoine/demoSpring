@@ -1,4 +1,4 @@
-package com.example.demoSpring.model.wizard;
+package com.example.demoSpring.model;
 
 import lombok.Builder;
 import lombok.Data;
