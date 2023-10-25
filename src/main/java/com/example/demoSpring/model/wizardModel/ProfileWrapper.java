@@ -1,17 +1,17 @@
 package com.example.demoSpring.model.wizardModel;
 
 public class ProfileWrapper {
-    private WizardProfile profile;
+    private Profile profile;
 
-    public ProfileWrapper(WizardProfile profile) {
+    public ProfileWrapper(Profile profile) {
         this.profile = profile;
     }
 
-    public WizardProfile getProfile() {
+    public Profile getProfile() {
         return profile;
     }
 
-    public void setProfile(WizardProfile profile) {
+    public void setProfile(Profile profile) {
         this.profile = profile;
     }
 }

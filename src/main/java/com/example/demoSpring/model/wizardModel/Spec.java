@@ -1,9 +1,9 @@
 package com.example.demoSpring.model.wizardModel;
 
-public class PhoneSpec {
+public class Spec {
     private int maxLength;
 
-    public PhoneSpec(int maxLength) {
+    public Spec(int maxLength) {
         this.maxLength = maxLength;
     }
 
@@ -14,5 +14,4 @@ public class PhoneSpec {
     public void setMaxLength(int maxLength) {
         this.maxLength = maxLength;
     }
-
 }
