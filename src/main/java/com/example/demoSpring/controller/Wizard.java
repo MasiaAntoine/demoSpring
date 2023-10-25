@@ -12,12 +12,40 @@ public class Wizard {
 
     @GetMapping("/wizard/spec")
     public ProfileWrapper getWizardSpec() {
-        Spec emailSpec = Spec.builder().maxLength(20).build();
-        Spec phoneSpec = Spec.builder().maxLength(20).build();
+        Spec emailSpec = Spec.builder()
+                .maxLength(50)
+                .minLength(3)
+                .allowedCharacter("")
+                .build();
+        Spec phoneSpec = Spec.builder()
+                .maxLength(20)
+                .minLength(10)
+                .allowedCharacter("^[0-9+ ]+$")
+                .build();
+        Spec passwordSpec = Spec.builder()
+                .maxLength(50)
+                .minLength(3)
+                .allowedCharacter("")
+                .build();
+        Spec lastnameSpec = Spec.builder()
+                .maxLength(50)
+                .minLength(3)
+                .allowedCharacter("^[a-zA-Z éèêëàâäôöùûüçÉÈÊËÀÂÄÔÖÙÛÜÇ-]+$")
+                .build();
+        Spec firstnameSpec = Spec.builder()
+                .maxLength(50)
+                .minLength(3)
+                .allowedCharacter("^[a-zA-Z éèêëàâäôöùûüçÉÈÊËÀÂÄÔÖÙÛÜÇ-]+$")
+                .build();
+
         Profile wizardProfile = Profile.builder()
                 .email(emailSpec)
                 .phone(phoneSpec)
+                .password(passwordSpec)
+                .lastname(lastnameSpec)
+                .firstname(firstnameSpec)
                 .build();
+
         return ProfileWrapper.builder()
                 .profile(wizardProfile)
                 .build();

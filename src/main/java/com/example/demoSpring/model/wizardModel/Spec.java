@@ -12,4 +12,10 @@ import lombok.RequiredArgsConstructor;
 public class Spec {
     @JsonProperty("max-length")
     private final int maxLength;
+
+    @JsonProperty("min-length")
+    private final int minLength;
+
+    @JsonProperty("allowed-character")
+    private final String allowedCharacter;
 }
