@@ -1,12 +1,10 @@
-package com.example.demoSpring.model.wizardModel;
+package com.example.demoSpring.model.wizard;
 
 import lombok.Builder;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 
 @Data
-@RequiredArgsConstructor
-@Builder
+@Builder(toBuilder = true)
 public class Profile {
     private final Spec lastname;
     private final Spec firstname;

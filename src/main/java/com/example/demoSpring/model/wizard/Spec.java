@@ -1,4 +1,4 @@
-package com.example.demoSpring.model.wizardModel;
+package com.example.demoSpring.model.wizard;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

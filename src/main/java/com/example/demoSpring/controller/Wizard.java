@@ -3,15 +3,16 @@ package com.example.demoSpring.controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demoSpring.model.wizardModel.ProfileWrapper;
-import com.example.demoSpring.model.wizardModel.Spec;
-import com.example.demoSpring.model.wizardModel.Profile;
+import com.example.demoSpring.model.wizard.Profile;
+import com.example.demoSpring.model.wizard.Shop;
+import com.example.demoSpring.model.wizard.Spec;
+import com.example.demoSpring.model.wizard.Wrapper;
 
 @RestController
 public class Wizard {
 
     @GetMapping("/wizard/spec")
-    public ProfileWrapper getWizardSpec() {
+    public Wrapper getWizardSpec() {
         Spec emailSpec = Spec.builder()
                 .maxLength(50)
                 .minLength(3)
@@ -32,13 +33,23 @@ public class Wizard {
                 .minLength(3)
                 .allowedCharacter("^[a-zA-Z éèêëàâäôöùûüçÉÈÊËÀÂÄÔÖÙÛÜÇ-]+$")
                 .build();
+        Spec nameShopSpec = Spec.builder()
+                .maxLength(50)
+                .minLength(3)
+                .allowedCharacter("^[a-zA-Z éèêëàâäôöùûüçÉÈÊËÀÂÄÔÖÙÛÜÇ-]+$")
+                .build();
         Spec firstnameSpec = Spec.builder()
                 .maxLength(50)
                 .minLength(3)
                 .allowedCharacter("^[a-zA-Z éèêëàâäôöùûüçÉÈÊËÀÂÄÔÖÙÛÜÇ-]+$")
                 .build();
+        Spec adressSpec = Spec.builder()
+                .maxLength(300)
+                .minLength(10)
+                .allowedCharacter("^[a-zA-Z0-9 éèêëàâäôöùûüçÉÈÊËÀÂÄÔÖÙÛÜÇ,'-]+$")
+                .build();
 
-        Profile wizardProfile = Profile.builder()
+        Profile profile = Profile.builder()
                 .email(emailSpec)
                 .phone(phoneSpec)
                 .password(passwordSpec)
@@ -46,8 +57,15 @@ public class Wizard {
                 .firstname(firstnameSpec)
                 .build();
 
-        return ProfileWrapper.builder()
-                .profile(wizardProfile)
+        Shop shop = Shop.builder()
+                .phone(phoneSpec)
+                .name(nameShopSpec)
+                .adress(adressSpec)
+                .build();
+
+        return Wrapper.builder()
+                .profile(profile)
+                .shop(shop)
                 .build();
     }
 
