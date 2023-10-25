@@ -1,6 +1,9 @@
 package com.example.demoSpring.model.wizardModel;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Spec {
+    @JsonProperty("max-length")
     private int maxLength;
 
     public Spec(int maxLength) {
