@@ -4,18 +4,30 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import lombok.Builder;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 
 @Data
-@RequiredArgsConstructor
 @Builder
 public class Spec {
     @JsonProperty("max-length")
     private final int maxLength;
 
     @JsonProperty("min-length")
-    private final int minLength;
+    private int minLength;
 
     @JsonProperty("allowed-character")
     private final String allowedCharacter;
+
+    @Builder
+    public Spec(int maxLength, int minLength, String allowedCharacter) {
+        this.maxLength = maxLength;
+        this.minLength = minLength;
+        this.allowedCharacter = allowedCharacter;
+        adjustMinLength();
+    }
+
+    private void adjustMinLength() {
+        if (minLength > maxLength) {
+            minLength = maxLength;
+        }
+    }
 }
