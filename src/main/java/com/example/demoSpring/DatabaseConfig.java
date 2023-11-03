@@ -13,14 +13,14 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 
 @Configuration
 @EnableAutoConfiguration
-@EnableJpaRepositories(basePackages = "com.example.repository")
+@EnableJpaRepositories(basePackages = "com.example.demoSpring.repository")
 public class DatabaseConfig {
 
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource) {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource);
-        em.setPackagesToScan("com.example.model");
+        em.setPackagesToScan("com.example.demoSpring.model");
 
         JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         ((HibernateJpaVendorAdapter) vendorAdapter).setDatabase(Database.POSTGRESQL);
